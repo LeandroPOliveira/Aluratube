@@ -1,0 +1,22 @@
+{
+    "name": "Leandro Oliveira",
+    "job": "Desenvolvedor",
+    "github": "LeandroPOliveira",
+    "playlists": {
+        "jogos": [
+            {
+            "title": "Algum título",
+            "url": "url",
+            "thumb": "thumbnail do video"
+            }
+        ],
+        "frontend": [
+            {
+            "title": "Algum título",
+            "url": "url",
+            "thumb": "thumbnail do video"
+            }
+        ]
+
+        }
+    }

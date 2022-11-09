@@ -1,31 +1,31 @@
 import config from "../config.json";
 import styled from "styled-components";
+import { CSSReset } from "../src/components/CSSReset";
+import Menu from "../src/components/Menu";
+import { StyledTimeline } from "../src/components/Timeline";
 
 
 function HomePage() {
     // const mensagem = 'Bem vindo ao Aluratube!';
-    const estilosDaHomePage = { background: 'red' };
+    const estilosDaHomePage = { 
+        // background: 'red' 
+    };
 
 
 
     return (
+        <>
+        <CSSReset />
         <div style={estilosDaHomePage}>
             <Menu />
             <Header />
             <Timeline playlists={config.playlists} />
         </div>
+        </>
     )
 }
 
 export default HomePage
-
-function Menu() {
-    return (
-        <div>
-            Menu
-        </div>
-    )
-}
 
 
 const StyledHeader = styled.div`
@@ -35,6 +35,7 @@ const StyledHeader = styled.div`
         border-radius: 50%;
     }
     .user-info {
+        margin: 3rem 1rem;
         display: flex;
         align-items: center;
         width: 100%;
@@ -49,8 +50,10 @@ function Header() {
 
             <section className='user-info'>
                 <img src={`https://github.com/${config.github}.png`} />
-                {config.name}
-                {config.job}
+                <div>
+                    <h2>{config.name}</h2>
+                    <p>{config.job}</p>
+                </div>
             </section>
         </StyledHeader>
     )
@@ -60,7 +63,7 @@ function Timeline(props) {
     const playlistNames = Object.keys(props.playlists)
 
     return (
-        <div>
+        <StyledTimeline>
             {playlistNames.map((playlistName) => {
                 const videos = props.playlists[playlistName]
                 return (
@@ -81,6 +84,6 @@ function Timeline(props) {
                     </section>
                 )
             })}
-        </div>
+        </StyledTimeline>
     )
 }
